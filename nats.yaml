@@ -1,0 +1,40 @@
+
+---
+apiVersion: v1
+kind: Namespace
+metadata:
+  name: nats
+  labels:
+    name: nats
+---
+apiVersion: source.toolkit.fluxcd.io/v1beta2
+kind: HelmRepository
+metadata:
+  name: nats
+  namespace: flux-system
+spec:
+  interval: 1h0m0s
+  url: https://nats-io.github.io/k8s/helm/charts/
+
+---
+apiVersion: helm.toolkit.fluxcd.io/v2beta1
+kind: HelmRelease
+metadata:
+  name: nats
+  namespace: flux-system
+spec:
+  chart:
+    spec:
+      chart: nats
+      reconcileStrategy: ChartVersion
+      sourceRef:
+        kind: HelmRepository
+        name: nats
+  install:
+    crds: Create
+  interval: 1h0m0s
+  releaseName: nats
+  targetNamespace: nats
+  upgrade:
+    crds: CreateReplace
+
