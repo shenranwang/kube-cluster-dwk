@@ -20,10 +20,10 @@ spec:
   healthChecks:
   - kind: Deployment
     name: kube-prometheus-stack-operator
-    namespace: monitoring
+    namespace: prometheus
   - kind: Deployment
     name: kube-prometheus-stack-grafana
-    namespace: monitoring
+    namespace: prometheus
   interval: 1h0m0s
   path: ./manifests/monitoring/kube-prometheus-stack
   prune: true
