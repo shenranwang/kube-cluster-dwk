@@ -1,0 +1,9 @@
+apiVersion: v1
+kind: Namespace
+metadata:
+  name: simple-web-app
+---
+apiVersion: v1
+kind: Namespace
+metadata:
+  name: log-pingpong
