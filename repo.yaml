@@ -1,10 +1,12 @@
-apiVersion: source.toolkit.fluxcd.io/v1beta1
+---
+apiVersion: source.toolkit.fluxcd.io/v1beta2
 kind: GitRepository
 metadata:
   name: devopswithk8s-repo
   namespace: flux-system
 spec:
-  interval: 10m
-  url: https://github.com/shenranwang/devopswithk8s
+  interval: 10m0s
   ref:
     branch: main
+  url: https://github.com/shenranwang/devopswithk8s
+
